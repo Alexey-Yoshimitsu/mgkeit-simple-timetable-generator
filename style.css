@@ -1,0 +1,19 @@
+body{
+    display: block;
+    
+}
+input{
+    display: block;
+}
+label{
+    display: block;
+}
+.days{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+.days section{
+    display: flex;
+    flex-direction: column;
+}
