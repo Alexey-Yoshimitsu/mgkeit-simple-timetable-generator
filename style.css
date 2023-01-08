@@ -1,6 +1,6 @@
 body{
     display: block;
-    
+    user-select: none;
 }
 input{
     display: block;
@@ -16,4 +16,7 @@ label{
 .days section{
     display: flex;
     flex-direction: column;
+}
+section{
+    width: max-content;
 }

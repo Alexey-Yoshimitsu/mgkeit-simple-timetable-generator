@@ -21,6 +21,8 @@ let thursday = document.querySelector(".thursday");
 let friday = document.querySelector(".friday");
 
 
+
+
 const tttimetable = {
   chet: [
     [
@@ -63,15 +65,15 @@ const tttimetable = {
         time: "13:00-14:30",
       },
       {
-        title: "Архитектура аппаратных средств ",
+        title: "Архитектура аппаратных средств",
         kab: "414",
-        name: "Петрова Елена Александровна",
+        name: "Екатерина Александровна Щупкина",
         time: "14:55-16:25",
       },
       {
-        title: "Иностранный язык",
+        title: "ИностраПетрова Лера Юрьевнанный язык",
         kab: "307",
-        name: "Петрова Лера Юрьевна",
+        name: "",
         time: "16:35-18:05",
       },
     ],
@@ -275,17 +277,45 @@ const tttimetable = {
     ],
   ],
 };
+const timetable_to_send = {chet:[[],[],[],[],[]],nechet:[[],[],[],[],[]]}
 
-
-
-document.querySelector(".save-all").addEventListener("click", () => {
-  monday.querySelectorAll("input").forEach((e)=>{console.log(e.value)})
+let iterator = (day)=>{
+  let g = 0
+  for(let i = 0; i<=day.length; i+=4){
+    para = []
+    for(g = g; g < i; g++){
+      //console.log(day[g])
+      para.push(day[g])
+    }
+    if (para.length != 0){
+      obj = {
+      title: para[0],
+      kab: para[2],
+      name: para[3],
+      time: para[1],}
+      console.log(obj)
+    }
   
 
+    console.log("******")
+  }
+}
 
-  let group_name = document.querySelector("#group-name").value;
-  let timetable = { "group": group_name }
 
-
-  console.log(timetable)
+// какиш
+document.querySelector(".save-all").addEventListener("click", () => {
+  let group_name = document.querySelector("#group-name").value;// название группы
+  console.log(group_name)
+  let mo =[]
+  let tu = []
+  let we =[]
+  let th =[]
+  let fr = []
+  monday.querySelectorAll("input").forEach((e)=>{if(e.value !=""){mo.push(e.value)}})
+  tuesday.querySelectorAll("input").forEach((e)=>{if(e.value !=""){tu.push(e.value)}})
+  wednesday.querySelectorAll("input").forEach((e)=>{if(e.value !=""){we.push(e.value)}})
+  thursday.querySelectorAll("input").forEach((e)=>{if(e.value !=""){th.push(e.value)}})
+  friday.querySelectorAll("input").forEach((e)=>{if(e.value !=""){fr.push(e.value)}})
+  console.log(iterator(mo))
+  //let timetable = { "group": group_name }
 });
